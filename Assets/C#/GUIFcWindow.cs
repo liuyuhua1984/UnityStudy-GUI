@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GUIFcWindow : MonoBehaviour {
@@ -17,25 +16,26 @@ public class GUIFcWindow : MonoBehaviour {
 
    void OnGUI()
     {
-        winddowRect = GUI.Window(0,windowRect,DoMyFirstWindow,"First");
+    
+        windowRect = GUI.Window(0,windowRect, DoMyFirstWindow, "First");
 
-        windowRect2 = GUI.Window(1,windowRect2,DoMySecondWindow,"Second");
+        windowRect2 = GUI.Window(1,windowRect2, DoMySecondWindow, "Second");
     }
 
-    void DoMyFirstWindow()
+    void DoMyFirstWindow(int windowId)
     {
-        if (GUIFcWindow.Button(new Rect(10,20,100,20),"Focus other"))
+        if (GUI.Button(new Rect(10,20,100,20),"Focus other"))
         {
             GUI.FocusWindow(1);
         }
     }
 
-    void DoMySecondWindow()
+    void DoMySecondWindow(int swindowId)
     {
-        if (GUIFcWindow.Button(new Rect(10,20,100,20),"Focus other1"))
+        if (GUI.Button(new Rect(10,20,100,20),"Focus other1"))
         {
             //把id为0的设置为焦点窗口
-            GUIFcWindow.FocusWindow(0);
+            GUI.FocusWindow(0);
         }
     }
 }
